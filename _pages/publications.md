@@ -40,6 +40,15 @@ It includes records associated with the team's HAL structures; some work may be 
 <label for="bibsearch" class="publication-search-label">Search publications</label>
 {% include bib_search.liquid %}
 
+<div class="publication-stats-bar" id="publication-stats-bar" aria-live="polite">
+  <div class="pub-count-status">
+    <span class="pub-count-dot"></span>
+    <span id="pub-count-text">Loading publications…</span>
+    <button type="button" class="pub-reset-btn is-hidden" id="pub-reset-btn">Reset filter ×</button>
+  </div>
+  <div class="pub-year-chart" id="pub-year-chart" aria-label="Filter publications by year"></div>
+</div>
+
 <div class="publications">
 {% bibliography %}
 </div>
