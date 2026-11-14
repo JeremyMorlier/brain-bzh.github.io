@@ -124,37 +124,111 @@ permalink: /
       <div class="hero-art">
         <div class="art-label" aria-hidden="true">REPRESENTATIONS <span>↗</span></div>
         <svg class="network-art" viewBox="0 0 440 400" fill="none" role="img" tabindex="0" aria-label="Interactive network illustration. Move over the nodes, or use arrow keys to explore and Escape to reset.">
+          <defs>
+            <clipPath id="clip-node-outer">
+              <circle cx="0" cy="0" r="20" />
+            </clipPath>
+          </defs>
           <g class="art-grid" stroke="currentColor"><path d="M20 80H420M20 160H420M20 240H420M20 320H420M100 20V380M180 20V380M260 20V380M340 20V380" /></g>
           <g class="network-edges" stroke="currentColor" stroke-width="1.2">
-            <line data-from="0" data-to="1" x1="72" y1="248" x2="145" y2="155" />
-            <line data-from="1" data-to="2" x1="145" y1="155" x2="213" y2="230" />
-            <line data-from="2" data-to="3" x1="213" y1="230" x2="285" y2="107" />
-            <line data-from="3" data-to="4" x1="285" y1="107" x2="370" y2="169" />
-            <line data-from="4" data-to="5" x1="370" y1="169" x2="308" y2="285" />
-            <line data-from="5" data-to="2" x1="308" y1="285" x2="213" y2="230" />
-            <line data-from="1" data-to="6" x1="145" y1="155" x2="170" y2="303" />
-            <line data-from="6" data-to="0" x1="170" y1="303" x2="72" y2="248" />
-            <line data-from="1" data-to="3" x1="145" y1="155" x2="285" y2="107" />
-            <line data-from="6" data-to="5" x1="170" y1="303" x2="308" y2="285" />
-            <line data-from="5" data-to="4" x1="308" y1="285" x2="370" y2="169" />
-            <line data-from="0" data-to="2" x1="72" y1="248" x2="213" y2="230" />
-            <line data-from="2" data-to="4" x1="213" y1="230" x2="370" y2="169" />
-            <line data-from="0" data-to="7" x1="72" y1="248" x2="130" y2="299" />
+            <line data-from="0" data-to="1" x1="72" y1="246" x2="126" y2="150" />
+            <line data-from="1" data-to="2" x1="126" y1="150" x2="213" y2="230" />
+            <line data-from="2" data-to="3" x1="213" y1="230" x2="300" y2="118" />
+            <line data-from="3" data-to="4" x1="300" y1="118" x2="372" y2="198" />
+            <line data-from="4" data-to="5" x1="372" y1="198" x2="306" y2="285" />
+            <line data-from="5" data-to="2" x1="306" y1="285" x2="213" y2="230" />
+            <line data-from="1" data-to="6" x1="126" y1="150" x2="170" y2="303" />
+            <line data-from="6" data-to="0" x1="170" y1="303" x2="72" y2="246" />
+            <line data-from="1" data-to="9" x1="126" y1="150" x2="212" y2="95" />
+            <line data-from="9" data-to="3" x1="212" y1="95" x2="300" y2="118" />
+            <line data-from="1" data-to="3" x1="126" y1="150" x2="300" y2="118" />
+            <line data-from="2" data-to="9" x1="213" y1="230" x2="212" y2="95" />
+            <line data-from="6" data-to="5" x1="170" y1="303" x2="306" y2="285" />
+            <line data-from="0" data-to="2" x1="72" y1="246" x2="213" y2="230" />
+            <line data-from="2" data-to="4" x1="213" y1="230" x2="372" y2="198" />
+            <line data-from="0" data-to="7" x1="72" y1="246" x2="130" y2="299" />
             <line data-from="7" data-to="6" x1="130" y1="299" x2="170" y2="303" />
             <line data-from="7" data-to="8" x1="130" y1="299" x2="143" y2="347" />
             <line data-from="6" data-to="8" x1="170" y1="303" x2="143" y2="347" />
           </g>
           <g class="network-rest-rings" stroke="currentColor"><circle cx="213" cy="230" r="38" /><circle cx="213" cy="230" r="65" /></g>
           <g class="network-nodes" fill="currentColor">
-            <g class="network-node" data-x="72" data-y="248" transform="translate(72 248)"><circle class="node-halo" r="23" /><circle class="node-ring" r="14" /><circle class="node-dot" r="5" /></g>
-            <g class="network-node" data-x="145" data-y="155" transform="translate(145 155)"><circle class="node-halo" r="26" /><circle class="node-ring" r="17" /><circle class="node-dot" r="8" /></g>
+            <g class="network-node" data-x="72" data-y="246" transform="translate(72 246)">
+              <title>Axel Marmoret — Associate Professor</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/axel-marmoret.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/axel-marmoret.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-46" y="23" width="92" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Axel Marmoret</text>
+              </g>
+            </g>
+            <g class="network-node" data-x="126" data-y="150" transform="translate(126 150)">
+              <title>Nicolas Farrugia — Full Professor</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/nicolas-farrugia.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/nicolas-farrugia.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-52" y="23" width="104" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Nicolas Farrugia</text>
+              </g>
+            </g>
             <g class="network-node" data-x="213" data-y="230" transform="translate(213 230)"><circle class="node-halo" r="31" /><circle class="node-ring" r="22" /><circle class="node-dot" r="13" /></g>
-            <g class="network-node" data-x="285" data-y="107" transform="translate(285 107)"><circle class="node-halo" r="23" /><circle class="node-ring" r="14" /><circle class="node-dot" r="5" /></g>
-            <g class="network-node" data-x="370" data-y="169" transform="translate(370 169)"><circle class="node-halo" r="26" /><circle class="node-ring" r="17" /><circle class="node-dot" r="8" /></g>
-            <g class="network-node" data-x="308" data-y="285" transform="translate(308 285)"><circle class="node-halo" r="24" /><circle class="node-ring" r="15" /><circle class="node-dot" r="6" /></g>
+            <g class="network-node" data-x="300" data-y="118" transform="translate(300 118)">
+              <title>Bastien Pasdeloup — Associate Professor</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/bastien-pasdeloup.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/bastien-pasdeloup.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-55" y="23" width="110" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Bastien Pasdeloup</text>
+              </g>
+            </g>
+            <g class="network-node" data-x="372" data-y="198" transform="translate(372 198)">
+              <title>Giulia Lioi — Associate Professor</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/giulia-lioi.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/giulia-lioi.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-38" y="23" width="76" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Giulia Lioi</text>
+              </g>
+            </g>
+            <g class="network-node" data-x="306" data-y="285" transform="translate(306 285)">
+              <title>Mathieu Léonardon — Associate Professor</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/mathieu-leonardon.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/mathieu-leonardon.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-55" y="23" width="110" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Mathieu Léonardon</text>
+              </g>
+            </g>
             <g class="network-node" data-x="170" data-y="303" transform="translate(170 303)"><circle class="node-halo" r="22" /><circle class="node-ring" r="13" /><circle class="node-dot" r="4" /></g>
             <g class="network-node" data-x="130" data-y="299" transform="translate(130 299)"><circle class="node-halo" r="22" /><circle class="node-ring" r="13" /><circle class="node-dot" r="4" /></g>
             <g class="network-node" data-x="143" data-y="347" transform="translate(143 347)"><circle class="node-halo" r="22" /><circle class="node-ring" r="13" /><circle class="node-dot" r="4" /></g>
+            <g class="network-node" data-x="212" data-y="95" transform="translate(212 95)">
+              <title>Vincent Gripon — Full Professor · Team Lead</title>
+              <circle class="node-halo" r="28" />
+              <circle class="node-ring" r="22" />
+              <circle class="node-photo-bg" cx="0" cy="0" r="20" />
+              <image href="{{ '/assets/img/people/vincent-gripon.jpg' | relative_url }}" xlink:href="{{ '/assets/img/people/vincent-gripon.jpg' | relative_url }}" x="-20" y="-20" width="40" height="40" preserveAspectRatio="xMidYMid slice" clip-path="url(#clip-node-outer)" />
+              <circle class="node-border" cx="0" cy="0" r="20" />
+              <g class="node-caption" aria-hidden="true">
+                <rect class="node-caption-bg" x="-48" y="23" width="96" height="20" rx="10" />
+                <text class="node-caption-text" x="0" y="33" text-anchor="middle">Vincent Gripon</text>
+              </g>
+            </g>
           </g>
         </svg>
         <div class="art-foot" aria-hidden="true"><span>AI × SIGNAL × DATA</span><span>BREST, FR</span></div>

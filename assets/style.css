@@ -718,6 +718,85 @@ h2 em {
   transition: fill .3s ease;
 }
 
+.node-photo-bg {
+  fill: #eaf3f5;
+  transition: fill .3s ease;
+}
+
+.node-border {
+  fill: none;
+  stroke: #078aa6;
+  stroke-width: 1.8;
+  opacity: .75;
+  transition: stroke .3s ease, stroke-width .3s ease, opacity .3s ease;
+}
+
+.node-border-center {
+  stroke-width: 2.2;
+  stroke: #087e96;
+  opacity: .9;
+}
+
+.network-node image {
+  transition: opacity .3s ease, filter .3s ease;
+}
+
+.network-art.has-active-node .network-node:not(.is-active) image {
+  opacity: .82;
+  filter: grayscale(18%);
+}
+
+.network-node.is-active image {
+  opacity: 1;
+  filter: none;
+}
+
+.network-node.is-active .node-border {
+  stroke: #08788d;
+  stroke-width: 2.4;
+  opacity: 1;
+}
+
+.network-node.is-active .node-border-center {
+  stroke: #08788d;
+  stroke-width: 2.8;
+}
+
+.network-node {
+  cursor: pointer;
+}
+
+/* Node Caption / Tooltip on Hover */
+.node-caption {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-3px);
+}
+
+.network-node:hover .node-caption,
+.network-node.is-active .node-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.node-caption-bg {
+  fill: #123c50;
+  stroke: #4ecfe9;
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 5px rgba(18, 60, 80, 0.28));
+}
+
+.node-caption-text {
+  fill: #ffffff;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  dominant-baseline: central;
+  user-select: none;
+}
+
 .node-halo {
   fill: #4ecfe9;
   opacity: 0;
@@ -756,6 +835,7 @@ h2 em {
   html { scroll-behavior: auto; }
   .network-art * { transition: none !important; }
   .network-node.is-active .node-ring { animation: none; }
+  .node-caption { transform: none !important; }
 }
 
 /* Responsive Styles for Mobile & Tablets */
