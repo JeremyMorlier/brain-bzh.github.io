@@ -18,6 +18,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Accent- and case-insensitive text, so "Leonardon" matches "Léonardon".
+  const normalize = (text) =>
+    (text || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  // Searchable text of each entry: visible text plus the full author list,
+  // which the page collapses to "N more authors" after the first ones.
+  const searchText = new Map();
+  allItems.forEach((el) => {
+    const hiddenAuthors = el.querySelector(".bib-search-authors");
+    searchText.set(el, normalize(el.innerText + " " + (hiddenAuthors ? hiddenAuthors.textContent : "")));
+  });
+
+  const barHeight = (count, max) => (count > 0 ? Math.max(16, Math.round((count / max) * 100)) : 0);
+
   if (yearChartEl && yearSections.length > 0) {
     const maxYearTotal = Math.max(...yearSections.map((y) => y.total), 1);
     // Display chronologically left-to-right (oldest to newest)
@@ -30,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.className = "year-bar-btn";
         btn.dataset.year = sec.year;
         btn.title = `${sec.year}: ${sec.total} publications (click to filter)`;
-        const heightPct = Math.max(16, Math.round((sec.total / maxYearTotal) * 100));
+        const heightPct = barHeight(sec.total, maxYearTotal);
         btn.innerHTML = `
           <span class="year-bar-count">${sec.total}</span>
           <span class="year-bar-track"><span class="year-bar-fill" style="height:${heightPct}%"></span></span>
@@ -63,7 +80,18 @@ document.addEventListener("DOMContentLoaded", function () {
       resetBtnEl.classList.toggle("is-hidden", !rawTerm);
     }
     if (yearChartEl) {
+      // Redraw the bars from the entries matching the current filter.
+      const visibleByYear = new Map(
+        yearSections.map((sec) => [sec.year, [...sec.items].filter((el) => !el.classList.contains("unloaded")).length])
+      );
+      const maxVisible = Math.max(...visibleByYear.values(), 1);
       yearChartEl.querySelectorAll(".year-bar-btn").forEach((btn) => {
+        const count = visibleByYear.get(btn.dataset.year) || 0;
+        const countEl = btn.querySelector(".year-bar-count");
+        const fillEl = btn.querySelector(".year-bar-fill");
+        if (countEl) countEl.textContent = count;
+        if (fillEl) fillEl.style.height = barHeight(count, maxVisible) + "%";
+        btn.title = `${btn.dataset.year}: ${count} publications (click to filter)`;
         btn.classList.toggle("is-active", rawTerm.toLowerCase() === (btn.dataset.year || "").toLowerCase());
       });
     }
@@ -97,19 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // 4. Otherwise, filter items
-    if (CSS.highlights) {
-      const nonMatchingElements = highlightSearchTerm({ search: searchTerm, selector: ".bibliography > li" });
-      if (nonMatchingElements) {
-        nonMatchingElements.forEach((el) => el.classList.add("unloaded"));
+    // 4. Otherwise, filter items on the full searchable text (hidden authors
+    //    included, accents ignored), then highlight the visible matches.
+    const needle = normalize(searchTerm);
+    allItems.forEach((el) => {
+      if ((searchText.get(el) || "").indexOf(needle) === -1) {
+        el.classList.add("unloaded");
       }
-    } else {
-      document.querySelectorAll(".bibliography > li").forEach((el) => {
-        const text = el.innerText.toLowerCase();
-        if (text.indexOf(searchTerm) === -1) {
-          el.classList.add("unloaded");
-        }
-      });
+    });
+    if (CSS.highlights) {
+      highlightSearchTerm({ search: searchTerm, selector: ".bibliography > li" });
     }
 
     // 5. Hide empty year/group headings
