@@ -579,7 +579,13 @@ permalink: /
                 {% if member.role %}
                 <small>{{ member.role | escape }}</small>
                 {% else %}
-                <small>{{ group.group | replace: 's', '' | escape }}</small>
+                {% assign group_label = group.group %}
+                {% assign last_char = group_label | slice: -1, 1 %}
+                {% if last_char == 's' %}
+                {% assign singular_len = group_label | size | minus: 1 %}
+                {% assign group_label = group_label | slice: 0, singular_len %}
+                {% endif %}
+                <small>{{ group_label | escape }}</small>
                 {% endif %}
               </div>
             </div>
