@@ -150,6 +150,12 @@
           {{- more_authors_hide -}}
         </span>
       {% endif %}
+      {%- comment -%} Full author list, hidden, so the publication search also finds authors collapsed under "N more authors". {%- endcomment -%}
+      <span class="bib-search-authors" hidden>
+        {%- for author in entry.author_array -%}
+          {{ author.first }} {{ author.last | regex_replace: '[*∗†‡§¶‖&^]', '' }}{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      </span>
       {% if entry.annotation %}
         <i
           class="fa-solid fa-circle-info ml-1"
